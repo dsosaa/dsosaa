@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-light: #F7F8FA;
+            --bg-dark: #1E1E1E;
+            --text-light: #333333;
+            --text-dark: #E0E0E0;
+            --accent: #2A9D8F;
+            --dark-accent: #90BE6D;
+            --neutral-light: #E0E0E0;
+        }
+
+        body.light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .task {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .task input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .task i {
+            margin-right: 10px;
+            color: var(--neutral-light);
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--neutral-light);
+            margin-bottom: 20px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar div {
+            height: 100%;
+            width: 50%;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <h1>Tomorrow's Tasks</h1>
+        <div class="progress-bar"><div></div></div>
+
+        <h2><i data-feather="sun"></i> Morning</h2>
+        <ul class="task-list">
+            <li class="task"><i data-feather="circle"></i> Go for a Walk</li>
+            <li class="task"><i data-feather="circle"></i> Choose Walking Route</li>
+        </ul>
+
+        <h2><i data-feather="cloud-sun"></i> Midday</h2>
+        <ul class="task-list">
+            <li class="task"><i data-feather="circle"></i> Prepare Camera Gear</li>
+            <li class="task"><i data-feather="circle"></i> Charge Batteries</li>
+        </ul>
+
+        <h2><i data-feather="moon"></i> Evening</h2>
+        <ul class="task-list">
+            <li class="task"><i data-feather="circle"></i> Relax and Stretch</li>
+        </ul>
+
+        <button id="theme-toggle">Toggle Dark Mode</button>
+    </div>
+    <script>
+        // Feather icons rendering
+        feather.replace();
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById("theme-toggle");
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.toggle("light-mode");
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+</body>
+</html>
